@@ -5,7 +5,7 @@ from os import path
 from flask import Flask
 from flask_restful import Api
 
-from resources.items_resource import ItemsResource, ITEMS_ENDPOINT
+from items_api.resources.items_resource import ItemsResource, ITEMS_ENDPOINT
 def create_app():
   logging.basicConfig(level=logging.DEBUG)
 
