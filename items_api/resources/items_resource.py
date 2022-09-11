@@ -4,12 +4,6 @@ import sqlite3
 from flask import request, jsonify
 from flask_restful import Resource, abort
 
-ITEMS = [
-  { 'id': 1, 'name': 'red'},
-  { 'id': 2, 'name': 'green'},
-  { 'id': 3, 'name': 'orange'}
-]
-
 ITEMS_ENDPOINT = "/api/items"
 logger = logging.getLogger(__name__)
 
@@ -33,7 +27,7 @@ class ItemsResource(Resource):
       return all_items
 
   def _get_item_by_id(self, item_id):
-    logging.info(f"Getting item {ITEMS[2]}")
+    logging.info(f"Getting item {item_id}")
     with sqlite3.connect('items.db') as connection:
       cursor = connection.cursor()
       cursor.execute("SELECT * FROM items WHERE id = ?", (item_id,))
@@ -41,3 +35,10 @@ class ItemsResource(Resource):
       if not item:
         raise Exception("No Result Found")
     return item
+
+  def delete(self, id=None):
+    logging.info(f"Deleting all items")
+    with sqlite3.connect('items.db') as connection:
+      cursor = connection.cursor()
+      cursor.execute("DELETE FROM items")
+    return 200
