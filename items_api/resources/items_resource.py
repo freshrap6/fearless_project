@@ -42,3 +42,13 @@ class ItemsResource(Resource):
       cursor = connection.cursor()
       cursor.execute("DELETE FROM items")
     return 200
+
+  def put(self, id=None):
+    logging.info(f"Updating all items")
+    with sqlite3.connect('items.db') as connection:
+      cursor = connection.cursor()
+      cursor.execute("DELETE FROM items")
+      for item in request.get_json():
+        logging.info(f"Adding item: {item}")
+        cursor.execute("""INSERT INTO items (name) values(?);""", (item["name"],))
+    return jsonify(request.get_json()), 200
