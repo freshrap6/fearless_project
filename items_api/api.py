@@ -12,7 +12,7 @@ def create_app():
   app = Flask(__name__)
   api = Api(app)
 
-  api.add_resource(ItemsResource, ITEMS_ENDPOINT)
+  api.add_resource(ItemsResource, ITEMS_ENDPOINT, f"{ITEMS_ENDPOINT}/<id>")
 
   return app
 

@@ -16,7 +16,16 @@ class ItemsResource(Resource):
   def get(self, id=None):
     if not id:
       return self._get_all_items(), 200
+    
+    try:
+      return self._get_item_by_id(id), 200
+    except NoResultFound:
+      abort(404, message="Item not found")
 
   def _get_all_items(self):
     logging.info("Getting all items")
     return ITEMS
+
+  def _get_item_by_id(self, item_id):
+    logging.info(f"Getting item {ITEMS[2]}")
+    return ITEMS[2]
