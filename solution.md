@@ -17,3 +17,17 @@ My plan of attack. Create minimial app. get it working with dockerfile and confi
 /api will be the root of the request
 
 each resource will have its own folder and source file
+
+
+TODOS:
+More Unit testing
+Type hinting
+Improved Configuration
+Adding more resources for item
+ - per id 
+
+
+Known Issues:
+Put must be in the form of {data:[{"name":"value"}]}
+Can only handle a single update
+Repea
