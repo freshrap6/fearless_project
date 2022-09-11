@@ -10,6 +10,7 @@ pytest = "*"
 [packages]
 flask = "*"
 flask-restful = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.9"

@@ -4,11 +4,11 @@ RUN pip install pipenv
 
 ENV PROJECT_DIR /usr/local/src/fearless_project
 
+COPY . /app
 WORKDIR /app
 
-COPY . /app
-
 RUN pipenv install --system --deploy
+RUN chmod +x ./entrypoint.sh
 
-ENTRYPOINT [ "python" ]
-CMD [ "items_api/api.py" ]
+EXPOSE  3000
+ENTRYPOINT [ "sh", "entrypoint.sh" ]
