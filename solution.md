@@ -33,5 +33,5 @@ docker run -p 3000:3000 --name itemserver webserver
   * The database code for example, could be combined for better reusabilty
 
 # Known Issues:
-Put must be in the form of {data:[{"name":"value"}]}
-Can only handle a single update
+* Put must be in the form of {data:[{"name":"value"}]}
+* Can only update single value
