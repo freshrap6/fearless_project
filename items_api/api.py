@@ -1,13 +1,12 @@
 import logging
-from re import I 
-from pathlib import Path
+import sys
+from os import path
 from flask import Flask
 from flask_restful import Api
 
-from resources.items_resource import ItemsResource, ITEMS_ENDPOINT
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-PROJECT_ROOT = Path(__file__).parent.parent
-PROJECT_DB = "items.db"
+from items_api.resources.items_resource import ItemsResource, ITEMS_ENDPOINT
 
 def create_app():
   logging.basicConfig(level=logging.DEBUG)
