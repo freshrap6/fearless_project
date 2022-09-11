@@ -4,7 +4,7 @@ from pathlib import Path
 from flask import Flask
 from flask_restful import Api
 
-from items_api.resources.items_resource import ItemsResource, ITEMS_ENDPOINT
+from resources.items_resource import ItemsResource, ITEMS_ENDPOINT
 
 PROJECT_ROOT = Path(__file__).parent.parent
 PROJECT_DB = "items.db"
